@@ -4,16 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $products = Product::all(); // Fetch all products
+        return view('products.index', compact('products')); // Pass products to the view
     }
 
     /**
